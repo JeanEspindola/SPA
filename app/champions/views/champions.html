@@ -1,0 +1,32 @@
+<div class="container champions-body">
+
+    <div data-ng-if="championsCtrl.isLoadingPane" class="loading-overlay">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw spinner"></i>
+    </div>
+
+    <div class="row page-title">
+        <div class="col-md-12">
+            <h1>F1 Champions List: 2005-2015</h1>
+        </div>
+    </div>
+
+    <div class="row list">
+        <div class="col-md-12">
+            <div class="row list-columns bg-primary text-white">
+                <div class="col-md-1 right">Season</div>
+                <div class="col-md-5">Champion</div>
+                <div class="col-md-3 right">Wins</div>
+                <div class="col-md-3 right">Points</div>
+            </div>
+
+            <div class="row list-item"
+                 data-ng-repeat="champion in championsCtrl.championsList"
+                    data-ng-click="championsCtrl.yearDetails(champion)">
+                <div class="col-md-1 right">{{::champion.season}}</div>
+                <div class="col-md-5">{{::champion.firstName}} {{::champion.lastName}}</div>
+                <div class="col-md-3 right">{{::champion.wins}}</div>
+                <div class="col-md-3 right">{{::champion.points}}</div>
+            </div>
+        </div>
+    </div>
+</div>

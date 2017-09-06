@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" data-ng-app="mobiquity">
+
+    <head>
+        <title>Mobiquity F1</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- @@VENDOR-STYLES@@ -->
+        <!-- @@APP-STYLES@@ -->
+    </head>
+
+    <body data-ng-controller="mobiquity.mainController as mainCtrl">
+
+        <div ui-view></div>
+
+        <div data-ng-if="!mainCtrl.isAppLoaded" class="main-body">
+
+            <div class="text">
+
+                <div>Mobiquity Frontend Developer Exercise 2.7</div>
+                <div>by Jean Espindola</div>
+
+                <br />
+                <div>Click <a ui-sref="championslist">here</a> to go to the Single Page Application!!</div>
+            </div>
+        </div>
+
+        <div data-ng-if="mainCtrl.isLoading" class="loading-overlay">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw spinner"></i>
+        </div>
+
+        <!-- @@VENDOR-SCRIPTS@@ -->
+        <!-- @@APP-SCRIPTS@@ -->
+    </body>
+</html>
