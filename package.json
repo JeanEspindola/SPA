@@ -30,11 +30,24 @@
     "grunt-extend-config": "^0.9.2",
     "grunt-githooks": "^0.3.1",
     "grunt-json-minify": "~0.4.0",
+    "grunt-karma": "^2.0.0",
     "grunt-run": "^0.2.2",
     "grunt-script-link-tags": "1.0.2",
     "grunt-text-replace": "~0.3.11",
+    "grunt-wiredep": "^3.0.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.0",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-junit-reporter": "~1.0.0",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-ng-json2js-preprocessor": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sinon": "~1.0.5",
     "load-grunt-configs": "^0.4.3",
-    "load-grunt-tasks": "^0.6.0",
-    "serve-static": "^1.10.2"
+    "load-grunt-tasks": "^3.5.0",
+    "ng-describe": "1.8.0",
+    "serve-static": "^1.10.2",
+    "sinon": "~1.17.4"
   }
 }
