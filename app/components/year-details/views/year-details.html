@@ -44,16 +44,31 @@
             </div>
         </div>
 
-        <div class="row list-columns bg-primary text-white">
-            <div class="col-xs-1">Round</div>
-            <div class="col-xs-11">Winner</div>
+        <div class="visible-sm">
+            <div class="row list-columns bg-primary text-white">
+                <div class="col-xs-2">Round</div>
+                <div class="col-xs-10">Winner</div>
+            </div>
+
+            <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
+                 data-ng-repeat="result in vm.info.results">
+                <div class="col-xs-2">{{::result.round}}</div>
+                <div class="col-xs-10">{{::result.firstName}} {{::result.lastName}}
+                    <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+                </div>
+            </div>
         </div>
 
-        <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
-             data-ng-repeat="result in vm.info.results">
-            <div class="col-xs-1 right">{{::result.round}}</div>
-            <div class="col-xs-11">{{::result.firstName}} {{::result.lastName}}
-                <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+        <div class="visible-xs">
+            <div class="row list-columns bg-primary text-white">
+                <div class="col-xs-12">Round - Winner</div>
+            </div>
+
+            <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
+                 data-ng-repeat="result in vm.info.results">
+                <div class="col-xs-12">{{::result.round}} - {{::result.firstName}} {{::result.lastName}}
+                    <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+                </div>
             </div>
         </div>
     </div>
