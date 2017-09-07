@@ -2,35 +2,63 @@
     class="container-fluid year-details-view"
     data-ng-controller="mobiquity.component.yearDetails.yearDetailsController as vm">
 
-    <div class="row title">
-        <div class="col-md-12">
-            <h2> Race Results: {{::vm.info.season}} </h2>
+    <div class="visible-md visible-lg">
+        <div class="row title">
+            <div class="col-md-12">
+                <h2> Race Results: {{::vm.info.season}} </h2>
+            </div>
+        </div>
+
+        <div class="row description">
+            <div class="col-md-12">
+                Driver's Winner: {{::vm.info.driverName}} <i class="fa fa-trophy"></i>
+            </div>
+        </div>
+
+        <div class="row list-columns bg-primary text-white">
+            <div class="col-md-1">Round</div>
+            <div class="col-md-5">Race Name</div>
+            <div class="col-md-6">Winner</div>
+        </div>
+
+        <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
+             data-ng-repeat="result in vm.info.results">
+            <div class="col-md-1 right">{{::result.round}}</div>
+            <div class="col-md-5">{{::result.raceName}}</div>
+            <div class="col-md-6">{{::result.firstName}} {{::result.lastName}}
+                <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+            </div>
         </div>
     </div>
 
-    <div class="row description">
-        <div class="col-md-12">
-            Driver's Winner: {{::vm.info.driverName}} <i class="fa fa-trophy"></i>
+    <div class="visible-xs visible-sm">
+        <div class="row">
+            <div class="col-xs-12">
+                Race Results: {{::vm.info.season}}
+            </div>
         </div>
-    </div>
 
-    <div class="row list-columns bg-primary text-white">
-        <div class="col-md-1">Round</div>
-        <div class="col-md-5">Race Name</div>
-        <div class="col-md-6">Winner</div>
-    </div>
+        <div class="row description">
+            <div class="col-xs-12">
+                Driver's Winner: {{::vm.info.driverName}} <i class="fa fa-trophy"></i>
+            </div>
+        </div>
 
-    <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
-         data-ng-repeat="result in vm.info.results">
-        <div class="col-md-1 right">{{::result.round}}</div>
-        <div class="col-md-5">{{::result.raceName}}</div>
-        <div class="col-md-6">{{::result.firstName}} {{::result.lastName}}
-            <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+        <div class="row list-columns bg-primary text-white">
+            <div class="col-xs-1">Round</div>
+            <div class="col-xs-11">Winner</div>
+        </div>
+
+        <div class="row results {{result.driverId === vm.info.driverId ? 'champion-result' : ''}}"
+             data-ng-repeat="result in vm.info.results">
+            <div class="col-xs-1 right">{{::result.round}}</div>
+            <div class="col-xs-11">{{::result.firstName}} {{::result.lastName}}
+                <i class="fa fa-trophy trophy-icon" data-ng-if="result.driverId === vm.info.driverId"></i>
+            </div>
         </div>
     </div>
 
     <div class="row button">
         <button class="btn btn-primary pull-left" data-ng-click="closePanel()">Close</button>
     </div>
-
 </div>

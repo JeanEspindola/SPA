@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="row list">
+    <div class="row visible-md visible-lg list">
         <div class="col-md-12">
             <div class="row list-columns bg-primary text-white">
                 <div class="col-md-1 right">Season</div>
@@ -26,6 +26,22 @@
                 <div class="col-md-5">{{::champion.firstName}} {{::champion.lastName}}</div>
                 <div class="col-md-3 right">{{::champion.wins}}</div>
                 <div class="col-md-3 right">{{::champion.points}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row visible-xs visible-sm list">
+        <div class="col-xs-12">
+            <div class="row list-columns bg-primary text-white">
+                <div class="col-xs-3">Season</div>
+                <div class="col-xs-9">Champion</div>
+            </div>
+
+            <div class="row list-item"
+                 data-ng-repeat="champion in championsCtrl.championsList"
+                 data-ng-click="championsCtrl.yearDetails(champion)">
+                <div class="col-xs-3">{{::champion.season}}</div>
+                <div class="col-xs-9">{{::champion.firstName}} {{::champion.lastName}}</div>
             </div>
         </div>
     </div>
