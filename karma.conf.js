@@ -10,17 +10,16 @@ module.exports = function (config) {
             'vendor/angular/angular.js',
             'vendor/angular-mocks/angular-mocks.js',
             'vendor/angular-ui-router/release/angular-ui-router.js',
+            'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
+            'vendor/angular-animate/angular-animate.min.js',
+            'vendor/moment/min/moment-with-locales.min.js',
             'vendor/sinonjs/sinon.js',
             'node_modules/ng-describe/dist/ng-describe.js',
-
             'app/app.js',
             'app/**/*-module.js',
             'app/**/*-config.js',
             'app/**/*.js',
-            'app/app-controller.js',
             //'test/**/*.json',
-
-            // html
 
             'index.html',
             'app/**/*.html'
