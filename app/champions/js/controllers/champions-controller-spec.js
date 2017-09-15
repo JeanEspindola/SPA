@@ -1,8 +1,8 @@
 'use strict';
 ngDescribe({
-    name: 'year-details-controller-spec.js',
+    name: 'champions-controller-spec.js',
     module: [
-        'mobiquity.component.yearDetails'
+        'mobiquity.champions'
     ],
     inject: [
         '$q',
@@ -15,14 +15,13 @@ ngDescribe({
         beforeEach(inject(function($rootScope, $controller) {
 
             scope = $rootScope.$new();
-            scope.info = {};
 
-            controller = $controller('mobiquity.component.yearDetails.yearDetailsController', {
+            controller = $controller('mobiquity.champions.championsController', {
                 $scope: scope
             });
         }));
 
-        it('Year details controller and scope should be initialized', function() {
+        it('Champions controller and scope should be initialized', function() {
             expect(controller).toBeDefined();
             expect(scope).toBeDefined();
         });

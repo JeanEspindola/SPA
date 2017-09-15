@@ -31,7 +31,8 @@ module.exports = {
                 'app/app-controller.js',
                 'app/**/*-module.js',
                 'app/**/*-config.js',
-                'app/**/*.js'
+                'app/**/*.js',
+                '!app/**/*-spec.js'
             ],
 
             vendorJsSrc: [
