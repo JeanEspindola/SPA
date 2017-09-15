@@ -1,0 +1,19 @@
+{
+  "StandingsTable":
+    {
+      "StandingsLists":
+      [
+        {"season":"2005","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"133","wins":"7","Driver":{"driverId":"alonso","code":"ALO","givenName":"Fernando","familyName":"Alonso"}}]},
+        {"season":"2006","round":"18","DriverStandings":[{"position":"1","positionText":"1","points":"134","wins":"7","Driver":{"driverId":"alonso","code":"ALO","givenName":"Fernando","familyName":"Alonso"}}]},
+        {"season":"2007","round":"17","DriverStandings":[{"position":"1","positionText":"1","points":"110","wins":"6","Driver":{"driverId":"raikkonen","code":"RAI","givenName":"Kimi","familyName":"Räikkönen"}}]},
+        {"season":"2008","round":"18","DriverStandings":[{"position":"1","positionText":"1","points":"98","wins":"5","Driver":{"driverId":"hamilton","code":"HAM","givenName":"Lewis","familyName":"Hamilton"}}]},
+        {"season":"2009","round":"17","DriverStandings":[{"position":"1","positionText":"1","points":"95","wins":"6","Driver":{"driverId":"button","code":"BUT","givenName":"Jenson","familyName":"Button"}}]},
+        {"season":"2010","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"256","wins":"5","Driver":{"driverId":"vettel","code":"VET","givenName":"Sebastian","familyName":"Vettel"}}]},
+        {"season":"2011","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"392","wins":"11","Driver":{"driverId":"vettel","code":"VET","givenName":"Sebastian","familyName":"Vettel"}}]},
+        {"season":"2012","round":"20","DriverStandings":[{"position":"1","positionText":"1","points":"281","wins":"5","Driver":{"driverId":"vettel","code":"VET","givenName":"Sebastian","familyName":"Vettel"}}]},
+        {"season":"2013","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"397","wins":"13","Driver":{"driverId":"vettel","code":"VET","givenName":"Sebastian","familyName":"Vettel"}}]},
+        {"season":"2014","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"384","wins":"11","Driver":{"driverId":"hamilton","code":"HAM","givenName":"Lewis","familyName":"Hamilton"}}]},
+        {"season":"2015","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"381","wins":"10","Driver":{"driverId":"hamilton","code":"HAM","givenName":"Lewis","familyName":"Hamilton"}}]}
+      ]
+  }
+}
