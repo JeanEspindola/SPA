@@ -13,6 +13,7 @@ module.exports = function (config) {
             'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
             'vendor/angular-animate/angular-animate.min.js',
             'vendor/moment/min/moment-with-locales.min.js',
+            'vendor/angular-slideout-panel/release/js/angular-slideout-panel.min.js',
             'vendor/sinonjs/sinon.js',
             'node_modules/ng-describe/dist/ng-describe.js',
             'app/app.js',
