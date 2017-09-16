@@ -16,7 +16,7 @@ ngDescribe({
         'mobiquity.core': {
             'mockedData': {
                 regexp: {
-                    'getDriverStandings': /^\/ergast.com\/api\/f1\/driverStandings\/1.json\?.*/
+                    'getDriverStandings': /http:\/\/ergast.com\/api\/f1\/driverStandings\/1.json\?limit=11&offset=55/
                 },
                 response: {
                     'error': {applicationCode: {code: 'GENERIC_ERROR', typeCode: 'error'}}
@@ -38,16 +38,18 @@ ngDescribe({
         });
 
         it('It should call getChampionsList - with success', function() {
-            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond(deps.mockChampionsListResult);
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getAllRegex).respond(deps.mockChampionsListResult);
             deps.championsDataservice.getChampionsList().then(
                 function(result) {
-                    expect(result).toEqual(deps.mockChampionsListResult.StandingsTable.StandingsLists);
+                    expect(result).toEqual(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists);
                 }
             );
+
+            deps.$httpBackend.flush();
         });
 
         it('It should call getChampionsList - with error 500', function() {
-            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond(500, 'error');
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getAllRegex).respond(500, 'error');
 
             deps.championsDataservice.getChampionsList().then(
                 deps.mockedData.failedPromise,
@@ -55,13 +57,8 @@ ngDescribe({
                     expect(result).toEqual(deps.mockedData.response.error);
                 }
             );
-        });
 
-    /*    afterEach(function() {
             deps.$httpBackend.flush();
-            deps.$rootScope.$digest();
-            //deps.$httpBackend.verifyNoOutstandingExpectation();
-            deps.$httpBackend.verifyNoOutstandingRequest();
-        });*/
+        });
     }
 });

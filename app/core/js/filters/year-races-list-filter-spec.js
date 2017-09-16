@@ -44,7 +44,7 @@ ngDescribe({
         });
 
         it('Should filter year race results.', function() {
-            expect(deps.$filter('yearRacesListFilter')(deps.mockYearRaceResults.RaceTable.Races)).toEqual(deps.mockedData.expectedResult);
+            expect(deps.$filter('yearRacesListFilter')(deps.mockYearRaceResults.MRData.RaceTable.Races)).toEqual(deps.mockedData.expectedResult);
         });
 
     }

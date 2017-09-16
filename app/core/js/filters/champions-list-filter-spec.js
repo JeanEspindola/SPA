@@ -36,7 +36,7 @@ ngDescribe({
         });
 
         it('Should filter champions list results.', function() {
-            expect(deps.$filter('championsListFilter')(deps.mockChampionsListResult.StandingsTable.StandingsLists)).toEqual(deps.mockedData.expectedResult);
+            expect(deps.$filter('championsListFilter')(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists)).toEqual(deps.mockedData.expectedResult);
         });
 
     }

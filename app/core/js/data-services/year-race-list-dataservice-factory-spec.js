@@ -16,7 +16,7 @@ ngDescribe({
         'mobiquity.core': {
             'mockedData': {
                 regexp: {
-                    'yearsResult': /^\/ergast.com\/api\/f1\/2015\/results\/1.json\?.*/
+                    'yearsResult': /http:\/\/ergast.com\/api\/f1\/undefined\/results\/1.json/
                 },
                 response: {
                     'error': {applicationCode: {code: 'GENERIC_ERROR', typeCode: 'error'}}
@@ -41,9 +41,11 @@ ngDescribe({
             deps.$httpBackend.whenGET(deps.mockedData.regexp.yearsResult).respond(deps.mockYearRaceResults);
             deps.yearRacesListDataservice.getYearRacesList().then(
                 function(result) {
-                    expect(result).toEqual(deps.mockYearRaceResults.RaceTable.Races);
+                    expect(result).toEqual(deps.mockYearRaceResults.MRData.RaceTable.Races);
                 }
             );
+
+            deps.$httpBackend.flush();
         });
 
         it('It should call getYearRacesList - with error 500', function() {
@@ -54,13 +56,8 @@ ngDescribe({
                     expect(result).toEqual(deps.mockedData.response.error);
                 }
             );
-        });
 
-        /*    afterEach(function() {
-         deps.$httpBackend.flush();
-         deps.$rootScope.$digest();
-         //deps.$httpBackend.verifyNoOutstandingExpectation();
-         deps.$httpBackend.verifyNoOutstandingRequest();
-         });*/
+            deps.$httpBackend.flush();
+        });
     }
 });
