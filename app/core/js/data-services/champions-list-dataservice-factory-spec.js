@@ -38,7 +38,7 @@ ngDescribe({
         });
 
         it('It should call getChampionsList - with success', function() {
-            deps.$httpBackend.whenGET(deps.mockedData.regexp.getAllRegex).respond(deps.mockChampionsListResult);
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond(deps.mockChampionsListResult);
             deps.championsDataservice.getChampionsList().then(
                 function(result) {
                     expect(result).toEqual(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists);
@@ -48,8 +48,20 @@ ngDescribe({
             deps.$httpBackend.flush();
         });
 
+        it('It should call getChampionsList - with success - return bad data', function() {
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond({});
+            deps.championsDataservice.getChampionsList().then(
+                deps.mockedData.failedPromise,
+                function(result) {
+                    expect(result).toEqual(deps.mockedData.response.error);
+                }
+            );
+
+            deps.$httpBackend.flush();
+        });
+
         it('It should call getChampionsList - with error 500', function() {
-            deps.$httpBackend.whenGET(deps.mockedData.regexp.getAllRegex).respond(500, 'error');
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond(500, 'error');
 
             deps.championsDataservice.getChampionsList().then(
                 deps.mockedData.failedPromise,

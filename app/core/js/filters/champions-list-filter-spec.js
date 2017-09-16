@@ -3,32 +3,14 @@ ngDescribe({
     name: 'year-races-list-filter-spec.js',
     modules: [
         'mobiquity.core',
-        'mock/championsListResult.json'
+        'mock/championsListResult.json',
+        'mock/championsListFiltered.json'
     ],
     inject: [
         '$filter',
         'mockChampionsListResult',
-        'mockedData'
+        'mockChampionsListFiltered'
     ],
-    mocks: {
-        'mobiquity.core': {
-            'mockedData': {
-                'expectedResult': [
-                    {season: '2005', wins: '7', points: '133', driverId: 'alonso', firstName: 'Fernando', lastName: 'Alonso'},
-                    {season: '2006', wins: '7', points: '134', driverId: 'alonso', firstName: 'Fernando', lastName: 'Alonso'},
-                    {season: '2007', wins: '6', points: '110', driverId: 'raikkonen', firstName: 'Kimi', lastName: 'Räikkönen'},
-                    {season: '2008', wins: '5', points: '98', driverId: 'hamilton', firstName: 'Lewis', lastName: 'Hamilton'},
-                    {season: '2009', wins: '6', points: '95', driverId: 'button', firstName: 'Jenson', lastName: 'Button'},
-                    {season: '2010', wins: '5', points: '256', driverId: 'vettel', firstName: 'Sebastian', lastName: 'Vettel'},
-                    {season: '2011', wins: '11', points: '392', driverId: 'vettel', firstName: 'Sebastian', lastName: 'Vettel'},
-                    {season: '2012', wins: '5', points: '281', driverId: 'vettel', firstName: 'Sebastian', lastName: 'Vettel'},
-                    {season: '2013', wins: '13', points: '397', driverId: 'vettel', firstName: 'Sebastian', lastName: 'Vettel'},
-                    {season: '2014', wins: '11', points: '384', driverId: 'hamilton', firstName: 'Lewis', lastName: 'Hamilton'},
-                    {season: '2015', wins: '10', points: '381', driverId: 'hamilton', firstName: 'Lewis', lastName: 'Hamilton'}
-                ]
-            }
-        }
-    },
     tests: function(deps) {
 
         beforeEach(function() {
@@ -36,7 +18,7 @@ ngDescribe({
         });
 
         it('Should filter champions list results.', function() {
-            expect(deps.$filter('championsListFilter')(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists)).toEqual(deps.mockedData.expectedResult);
+            expect(deps.$filter('championsListFilter')(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists)).toEqual(deps.mockChampionsListFiltered);
         });
 
     }

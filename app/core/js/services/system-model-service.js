@@ -44,9 +44,7 @@
 
             vm.championsService.getChampionsList().then(
                 function(championsList){
-                    var championsListFiltered = $filter('championsListFilter')(championsList);
-                    self.championsList = championsListFiltered;
-
+                    self.championsList = $filter('championsListFilter')(championsList);
                     deferred.resolve(self.championsList);
                 },
                 function(err){
