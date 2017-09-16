@@ -66,5 +66,21 @@ ngDescribe({
             deps.$httpBackend.flush();
         });
 
+        it('Should get the year results for a given year', function() {
+
+            deps.systemModel.yearsRacesList = [
+                {season: '2005', results: [{test: '2005'}]},
+                {season: '2007', results: [{test: '2007'}]},
+                {season: '2009', results: [{test: '2009'}]},
+                {season: '2011', results: [{test: '2011'}]}
+            ];
+
+            expect(deps.systemModel.checkYearRaceWinners('2005')).toEqual([{test: '2005'}]);
+            expect(deps.systemModel.checkYearRaceWinners('2007')).toEqual([{test: '2007'}]);
+            expect(deps.systemModel.checkYearRaceWinners('2014')).toEqual(null);
+
+
+        });
+
     }
 });
