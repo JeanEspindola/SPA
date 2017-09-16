@@ -16,7 +16,7 @@ ngDescribe({
         'mobiquity.core': {
             'mockedData': {
                 regexp: {
-                    'getDriverStandings': /^\/ergast.com\/api\/f1\/driverStandings\/1.json\?.*/
+                    'getDriverStandings': /http:\/\/ergast.com\/api\/f1\/driverStandings\/1.json\?limit=11&offset=55/
                 },
                 response: {
                     'error': {applicationCode: {code: 'GENERIC_ERROR', typeCode: 'error'}}
@@ -41,9 +41,23 @@ ngDescribe({
             deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond(deps.mockChampionsListResult);
             deps.championsDataservice.getChampionsList().then(
                 function(result) {
-                    expect(result).toEqual(deps.mockChampionsListResult.StandingsTable.StandingsLists);
+                    expect(result).toEqual(deps.mockChampionsListResult.MRData.StandingsTable.StandingsLists);
                 }
             );
+
+            deps.$httpBackend.flush();
+        });
+
+        it('It should call getChampionsList - with success - return bad data', function() {
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.getDriverStandings).respond({});
+            deps.championsDataservice.getChampionsList().then(
+                deps.mockedData.failedPromise,
+                function(result) {
+                    expect(result).toEqual(deps.mockedData.response.error);
+                }
+            );
+
+            deps.$httpBackend.flush();
         });
 
         it('It should call getChampionsList - with error 500', function() {
@@ -55,13 +69,8 @@ ngDescribe({
                     expect(result).toEqual(deps.mockedData.response.error);
                 }
             );
-        });
 
-    /*    afterEach(function() {
             deps.$httpBackend.flush();
-            deps.$rootScope.$digest();
-            //deps.$httpBackend.verifyNoOutstandingExpectation();
-            deps.$httpBackend.verifyNoOutstandingRequest();
-        });*/
+        });
     }
 });

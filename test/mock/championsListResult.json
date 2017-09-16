@@ -1,5 +1,7 @@
 {
-  "StandingsTable":
+  "MRData":
+  {
+    "StandingsTable":
     {
       "StandingsLists":
       [
@@ -15,5 +17,6 @@
         {"season":"2014","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"384","wins":"11","Driver":{"driverId":"hamilton","code":"HAM","givenName":"Lewis","familyName":"Hamilton"}}]},
         {"season":"2015","round":"19","DriverStandings":[{"position":"1","positionText":"1","points":"381","wins":"10","Driver":{"driverId":"hamilton","code":"HAM","givenName":"Lewis","familyName":"Hamilton"}}]}
       ]
+    }
   }
 }

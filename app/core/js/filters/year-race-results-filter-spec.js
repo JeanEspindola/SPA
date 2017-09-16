@@ -15,7 +15,7 @@ ngDescribe({
                     {season: '2005', results: [{test: 'test'}]},
                     {season: '2007', results: [{test: 'test'}]},
                     {season: '2009', results: [{test: 'test'}]},
-                    {season: '20011', results: [{test: 'test'}]}
+                    {season: '2011', results: [{test: 'test'}]}
                 ]
             }
         }
