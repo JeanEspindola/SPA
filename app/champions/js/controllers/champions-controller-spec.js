@@ -3,16 +3,30 @@ ngDescribe({
     name: 'champions-controller-spec.js',
     module: [
         'mobiquity.champions',
-        'mock/championsListFiltered.json'
+        'mock/championsListFiltered.json',
+        'mock/yearRaceResults.json'
     ],
     inject: [
         '$q',
         '$httpBackend',
         'mockChampionsListFiltered',
         'mobiquity.core.systemModelService',
-        'mobiquity.component.yearDetails.panelFactory'
+        'mobiquity.component.yearDetails.panelFactory',
+        'mockedData',
+        'mockYearRaceResults'
     ],
-
+    mocks: {
+        'mobiquity.champions': {
+            'mockedData': {
+                regexp: {
+                    'yearsResult': /http:\/\/ergast.com\/api\/f1\/2005\/results\/1.json/
+                },
+                response: {
+                    'error': {applicationCode: {code: 'GENERIC_ERROR', typeCode: 'error'}}
+                }
+            }
+        }
+    },
     tests: function(deps) {
         var scope, controller;
 
@@ -50,6 +64,34 @@ ngDescribe({
 
             expect(scope.vm.isLoadingPane).toBeFalsy();
             expect(deps.panelFactory.show).toHaveBeenCalledWith('2005', 'alonso', 'Fernando Alonso', [{test: '2005'}]);
+        });
+
+        it('Should call year Details - success - results not stored yet', function() {
+
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.yearsResult).respond(deps.mockYearRaceResults);
+
+            var champion = deps.mockChampionsListFiltered[0];
+
+            scope.vm.yearDetails(champion);
+
+            deps.$httpBackend.flush();
+
+            expect(scope.vm.isLoadingPane).toBeFalsy();
+            expect(deps.panelFactory.show).toHaveBeenCalled();
+        });
+
+        it('Should call year Details - error - results not stored yet', function() {
+
+            deps.$httpBackend.whenGET(deps.mockedData.regexp.yearsResult).respond(deps.mockedData.response.error);
+
+            var champion = deps.mockChampionsListFiltered[0];
+
+            scope.vm.yearDetails(champion);
+
+            deps.$httpBackend.flush();
+
+            expect(scope.vm.isLoadingPane).toBeFalsy();
+            expect(deps.panelFactory.show).not.toHaveBeenCalled();
 
         });
     }

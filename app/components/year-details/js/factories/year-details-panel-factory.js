@@ -17,7 +17,8 @@
     function panelFactory(angularSlideOutPanel) {
 
         var methods = {
-            show: show
+            show: show,
+            modalController: modalController
         };
 
         return methods;
