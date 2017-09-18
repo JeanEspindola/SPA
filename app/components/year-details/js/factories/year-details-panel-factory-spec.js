@@ -16,7 +16,6 @@ ngDescribe({
             deps.scope = deps.$rootScope.$new();
             deps.panelFactory = deps['mobiquity.component.yearDetails.panelFactory'];
             spyOn(deps['angularSlideOutPanel'], 'open');
-            //documentService = new deps['documentcloud.core.employeeDocumentDataService'](deps.mockEmployee.aoid);
         });
 
         it('The year details panel factory should be loaded', function() {
