@@ -65,7 +65,7 @@
                         vm.isLoadingPane = false;
                         deferred.resolve(yearRacesFiltered);
                     },
-                    function(err){
+                    function(err) {
                         vm.isLoadingPane = false;
                         deferred.reject(err);
                     }
