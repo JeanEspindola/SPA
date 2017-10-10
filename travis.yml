@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "4.5"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install
+  - bower install
+  - gulp build
+  - gulp style
+
+cache:
+  directories:
+    - ./node_modules
+    - ./vendor
+
+script:
+  - npm run test
