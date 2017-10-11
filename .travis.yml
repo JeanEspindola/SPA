@@ -6,6 +6,9 @@ branches:
   only:
     - master
 
+before_install:
+  - pip install --user codecov
+
 before_script:
   - npm install -g grunt-cli
   - npm install -g bower
@@ -17,5 +20,12 @@ cache:
     - ./node_modules
     - ./vendor
 
+notifications:
+  email:
+    on_success: never
+
 script:
   - npm run test
+
+after_success:
+  - codecov --file results/lcov.info --disable search
