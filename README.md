@@ -1,4 +1,5 @@
 # F1 UI
+  [![Build Status](https://travis-ci.org/JeanEspindola/SPA.svg?branch=master)](https://travis-ci.org/JeanEspindola/SPA)
 # Follow the instructions to run the application
 
   If you don't have node.js installed, make sure to do it first (Linux)
